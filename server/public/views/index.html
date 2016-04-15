@@ -9,8 +9,50 @@
     <link rel="stylesheet" href="/assets/css/style.css" />
   </head>
   <body>
-    <main ng-controller="ticketController as ticket">
-      {{65 + 1}}
+    <main class="container-fluid" ng-controller="ticketController as ticket">
+      <!-- Ticket creation form -->
+      <form class="col-md-6">
+        <!-- Name Input -->
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" class="form-control" name="name" placeholder="Name" />
+        </div>
+
+        <!-- Type Input -->
+        <div class="form-group">
+          <label for="type">Type:</label>
+          <input type="text" class="form-control" name="type" placeholder="Type" />
+        </div>
+
+        <!-- Priority Input -->
+        <div class="form-group">
+          <label for="priority">Priority:</label>
+          <input type="text" class="form-control" name="priority" placeholder="Priority" />
+        </div>
+
+        <!-- Description Input -->
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea type="text" class="form-control" name="description" placeholder="Description"></textarea>
+        </div>
+
+        <!-- Assignee Input -->
+        <div class="form-group">
+          <label for="assignee">Assignee:</label>
+          <input type="text" class="form-control" name="assignee" placeholder="Assignee" />
+        </div>
+
+        <!-- Reporter Input -->
+        <div class="form-group">
+          <label for="reporter">Reporter:</label>
+          <input type="text" class="form-control" name="reporter" placeholder="Reporter" />
+        </div>
+
+        <!-- Submit Input -->
+        <div class="form-group">
+          <input type="submit" class="btn btn-primary" value="Create" ng-click="createTicket()" />
+        </div>
+      </form>
     </main>
   </body>
 </html>
