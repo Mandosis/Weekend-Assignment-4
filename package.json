@@ -8,5 +8,18 @@
     "start": "node server/server.js"
   },
   "author": "Chris Rabuse",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "mongoose": "^4.4.12"
+  },
+  "devDependencies": {
+    "angular": "^1.5.3",
+    "bootstrap": "^3.3.6",
+    "grunt": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "jquery": "^2.2.3"
+  }
 }
