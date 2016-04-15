@@ -1,0 +1,12 @@
+{
+  "name": "project-tracker",
+  "version": "1.0.0",
+  "description": "Create and manage tickets",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "author": "Chris Rabuse",
+  "license": "ISC"
+}
