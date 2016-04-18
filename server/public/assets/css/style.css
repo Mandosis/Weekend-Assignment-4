@@ -89,12 +89,12 @@ textarea.form-control[disabled] {
   color: #333;
 }
 
-.label-default {
+.ticket-label {
     background: none;
-    border: 1px solid #DDD;
     color: #555;
     font-weight: 400;
     font-size: 13px;
+    padding-right: 10px;
 }
 
 time {
