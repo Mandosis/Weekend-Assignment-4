@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Project Tracker</title>
+    <script src="/vendor/moment/min/moment.min.js"></script>
     <script src="/vendor/angular/angular.min.js"></script>
     <script src="/assets/js/client.min.js"></script>
     <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css" />
@@ -75,8 +76,8 @@
               <p>Description: <textarea type="text" class="form-control" ng-init="item.editable = false" ng-model="item.description" rows="5" value="{{item.description}}" ng-disabled="!item.editable"></textarea></p>
               <p>Assignee: <input type="text" class="form-control" ng-init="item.editable = false" ng-model="item.assignee" value="{{item.assignee}}" ng-disabled="!item.editable" /></p>
               <p>Reporter: <input type="text" class="form-control" ng-init="item.editable = false" ng-model="item.reporter" value="{{item.reporter}}" ng-disabled="!item.editable" /></p>
-              <p>Created: {{item.created.toLocaleString('en-US')}}</p>
-              <p>Updated: {{item.updated}}</p>
+              <p>Created: {{ticket.formatTime(item.created)}}</p>
+              <p>Updated: {{ticket.formatTime(item.updated)}}</p>
               <div class="center-block button-container {{item.editable}}">
                 <button class="btn btn-primary" ng-show="!item.editable" ng-click="ticket.makeEditable(item)">Edit</button>
                 <button class="btn btn-primary" ng-show="item.editable" ng-click="ticket.edit(item)">Save</button>

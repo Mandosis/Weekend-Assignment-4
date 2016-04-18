@@ -34,7 +34,8 @@ module.exports = function(grunt) {
                    "bootstrap/dist/css/bootstrap.min.css",
                    "bootstrap/dist/css/bootstrap.min.css.map",
                    "bootstrap/dist/css/bootstrap-theme.min.css",
-                   "bootstrap/dist/css/bootstrap-theme.min.map"
+                   "bootstrap/dist/css/bootstrap-theme.min.map",
+                   "moment/min/moment.min.js"
                ],
                "dest": "server/public/vendor/"
            }

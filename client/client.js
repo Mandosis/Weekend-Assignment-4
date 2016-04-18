@@ -63,5 +63,10 @@ app.controller('ticketController', ['$http', function($http) {
     }
   };
 
+  // Make time readable
+  vm.formatTime = function(time) {
+    return moment(time).calendar();
+  };
+
   vm.get();
 }]);
