@@ -1,0 +1,83 @@
+body {
+  padding-top: 80px;
+}
+
+#sidebar {
+  background: #F5F5F5;
+  height: 100vh;
+  overflow-y: scroll;
+  position: fixed;
+  border-right: 1px solid #EEE;
+  padding-bottom: 80px;
+}
+
+#tickets {
+  padding-top: 25px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.navbar-default {
+  background: #FFF;
+  border-bottom: 1px solid #EEE;
+  min-height: 80px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.button-container.false {
+  max-width: 150px;
+  margin-top: 20px;
+}
+
+.button-container.true {
+  max-width: 127px;
+  margin-top: 20px;
+}
+
+.ticket-counter {
+  padding: 10px;
+  font-size: 14px;
+  margin-top: 21px;
+  margin-right: 25px;
+  background: none;
+  border: 1px solid #CCC;
+  color: #999;
+}
+
+.navbar-brand {
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+.form-control[disabled] {
+  background-color: #FFF;
+  border: none;
+  color: #555;
+  box-shadow: none;
+  width: auto;
+  display: inline;
+  height: auto;
+  padding: 0;
+  cursor: text;
+}
+
+textarea.form-control[disabled] {
+  height: 25px;
+  resize: none;
+  display: block;
+  padding: 0;
+  padding-left: 10px;
+  color: #555;
+}
+
+.name[disabled] {
+  background: none;
+  color: #FFF;
+}

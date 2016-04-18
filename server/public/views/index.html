@@ -9,50 +9,84 @@
     <link rel="stylesheet" href="/assets/css/style.css" />
   </head>
   <body>
-    <main class="container-fluid" ng-controller="ticketController as ticket">
-      <!-- Ticket creation form -->
-      <form class="col-md-6">
-        <!-- Name Input -->
-        <div class="form-group">
-          <label for="name">Name:</label>
-          <input type="text" class="form-control" name="name" placeholder="Name" />
-        </div>
+    <main ng-controller="ticketController as ticket">
+      <header>
+        <nav class="navbar navbar-default">
+          <h2 class="navbar-brand">Project Tracker</h2>
+          <p class="label label-default pull-right ticket-counter">Open Tickets: {{ticket.openTickets}}</p>
+        </nav>
+      </header>
+      <section id="sidebar" class="col-md-3">
+        <h2>Create a new ticket</h2>
+        <!-- Ticket creation form -->
+        <form>
+          <!-- Name Input -->
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" name="name" ng-model="ticket.name" placeholder="Name" required />
+          </div>
 
-        <!-- Type Input -->
-        <div class="form-group">
-          <label for="type">Type:</label>
-          <input type="text" class="form-control" name="type" placeholder="Type" />
-        </div>
+          <!-- Type Input -->
+          <div class="form-group">
+            <label for="type">Type:</label>
+            <input type="text" class="form-control" name="type" ng-model="ticket.type" placeholder="Type" required />
+          </div>
 
-        <!-- Priority Input -->
-        <div class="form-group">
-          <label for="priority">Priority:</label>
-          <input type="text" class="form-control" name="priority" placeholder="Priority" />
-        </div>
+          <!-- Priority Input -->
+          <div class="form-group">
+            <label for="priority">Priority:</label>
+            <input type="text" class="form-control" name="priority" ng-model="ticket.priority" placeholder="Priority" required />
+          </div>
 
-        <!-- Description Input -->
-        <div class="form-group">
-          <label for="description">Description:</label>
-          <textarea type="text" class="form-control" name="description" placeholder="Description"></textarea>
-        </div>
+          <!-- Description Input -->
+          <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea type="text" class="form-control" name="description" ng-model="ticket.description" rows="5" placeholder="Description"required ></textarea>
+          </div>
 
-        <!-- Assignee Input -->
-        <div class="form-group">
-          <label for="assignee">Assignee:</label>
-          <input type="text" class="form-control" name="assignee" placeholder="Assignee" />
-        </div>
+          <!-- Assignee Input -->
+          <div class="form-group">
+            <label for="assignee">Assignee:</label>
+            <input type="text" class="form-control" name="assignee" ng-model="ticket.assignee" placeholder="Assignee" required />
+          </div>
 
-        <!-- Reporter Input -->
-        <div class="form-group">
-          <label for="reporter">Reporter:</label>
-          <input type="text" class="form-control" name="reporter" placeholder="Reporter" />
-        </div>
+          <!-- Reporter Input -->
+          <div class="form-group">
+            <label for="reporter">Reporter:</label>
+            <input type="text" class="form-control" name="reporter" ng-model="ticket.reporter" placeholder="Reporter" required />
+          </div>
 
-        <!-- Submit Input -->
-        <div class="form-group">
-          <input type="submit" class="btn btn-primary" value="Create" ng-click="createTicket()" />
+          <!-- Submit Input -->
+          <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Create" ng-click="ticket.checkInput()" />
+          </div>
+        </form>
+      </section>
+
+      <!-- Display Tickets -->
+      <section  id="tickets" class="col-md-9 pull-right row">
+        <div ng-repeat="(i, item) in ticket.tickets track by $index" class="col-md-4">
+          <div class="panel panel-primary ticket">
+            <div class="panel-heading">
+              <input type="text" class="form-control name" ng-init="item.editable = false" ng-model="item.name" value="{{item.name}}" ng-disabled="!item.editable" />            </div>
+            <div class="panel-body">
+              <p>Type: <input type="text" class="form-control" ng-init="item.editable = false" ng-model="item.type" value="{{item.type}}" ng-disabled="!item.editable" /></p>
+              <p>Priority: <input type="text" class="form-control" ng-init="item.editable = false" ng-model="item.priority" value="{{item.priority}}" ng-disabled="!item.editable" /></p>
+              <p>Description: <textarea type="text" class="form-control" ng-init="item.editable = false" ng-model="item.description" rows="5" value="{{item.description}}" ng-disabled="!item.editable"></textarea></p>
+              <p>Assignee: <input type="text" class="form-control" ng-init="item.editable = false" ng-model="item.assignee" value="{{item.assignee}}" ng-disabled="!item.editable" /></p>
+              <p>Reporter: <input type="text" class="form-control" ng-init="item.editable = false" ng-model="item.reporter" value="{{item.reporter}}" ng-disabled="!item.editable" /></p>
+              <p>Created: {{item.created.toLocaleString('en-US')}}</p>
+              <p>Updated: {{item.updated}}</p>
+              <div class="center-block button-container {{item.editable}}">
+                <button class="btn btn-primary" ng-show="!item.editable" ng-click="ticket.makeEditable(item)">Edit</button>
+                <button class="btn btn-primary" ng-show="item.editable" ng-click="ticket.edit(item)">Save</button>
+                <button class="btn btn-success" ng-show="!item.editable" ng-click="ticket.remove(item._id)">Completed</button>
+                <button class="btn btn-danger" ng-show="item.editable" ng-click="ticket.remove(item._id)">Delete</button>
+              </div>
+            </div>
+          </div>
         </div>
-      </form>
+      </section>
     </main>
   </body>
 </html>
