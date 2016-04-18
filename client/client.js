@@ -50,8 +50,8 @@ app.controller('ticketController', ['$http', function($http) {
   vm.remove = function(id) {
     var api = '/ticket/remove/' + id;
 
-    $http.delete(api).then(function() {
-      console.log('Ticket removed succesfully');
+    $http.delete(api).then(function(response) {
+      // console.log('Ticket removed succesfully');
       vm.get();
     });
   };

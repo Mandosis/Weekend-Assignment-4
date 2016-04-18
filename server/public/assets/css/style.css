@@ -31,6 +31,11 @@ body {
   z-index: 100;
 }
 
+.button-container {
+  max-width: 150px;
+  margin-top: 20px;
+}
+
 .button-container.false {
   max-width: 150px;
   margin-top: 20px;
@@ -73,11 +78,16 @@ textarea.form-control[disabled] {
   resize: none;
   display: block;
   padding: 0;
-  padding-left: 10px;
+  /*padding-left: 10px;*/
   color: #555;
+  width: 100%;
 }
 
 .name[disabled] {
   background: none;
   color: #FFF;
+}
+
+time {
+  color: #555;
 }

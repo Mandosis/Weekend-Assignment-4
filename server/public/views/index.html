@@ -66,7 +66,7 @@
 
       <!-- Display Tickets -->
       <section  id="tickets" class="col-md-9 pull-right row">
-        <div ng-repeat="(i, item) in ticket.tickets track by $index" class="col-md-4">
+        <div ng-repeat="item in ticket.tickets track by $index" class="col-md-4">
           <div class="panel panel-primary ticket">
             <div class="panel-heading">
               <input type="text" class="form-control name" ng-init="item.editable = false" ng-model="item.name" value="{{item.name}}" ng-disabled="!item.editable" />            </div>
@@ -76,8 +76,8 @@
               <p>Description: <textarea type="text" class="form-control" ng-init="item.editable = false" ng-model="item.description" rows="5" value="{{item.description}}" ng-disabled="!item.editable"></textarea></p>
               <p>Assignee: <input type="text" class="form-control" ng-init="item.editable = false" ng-model="item.assignee" value="{{item.assignee}}" ng-disabled="!item.editable" /></p>
               <p>Reporter: <input type="text" class="form-control" ng-init="item.editable = false" ng-model="item.reporter" value="{{item.reporter}}" ng-disabled="!item.editable" /></p>
-              <p>Created: {{ticket.formatTime(item.created)}}</p>
-              <p>Updated: {{ticket.formatTime(item.updated)}}</p>
+              <p>Created: <time>{{ticket.formatTime(item.created)}}</time></p>
+              <p>Updated: <time>{{ticket.formatTime(item.updated)}}</time></p>
               <div class="center-block button-container {{item.editable}}">
                 <button class="btn btn-primary" ng-show="!item.editable" ng-click="ticket.makeEditable(item)">Edit</button>
                 <button class="btn btn-primary" ng-show="item.editable" ng-click="ticket.edit(item)">Save</button>
