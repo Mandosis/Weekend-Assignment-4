@@ -73,7 +73,8 @@
             <div class="panel-body">
               <p><span class="ticket-label">Type:</span> <input type="text" class="form-control" ng-init="item.editable = false" ng-model="item.type" value="{{item.type}}" ng-disabled="!item.editable" /></p>
               <p><span class="ticket-label">Priority:</span> <input type="text" class="form-control" ng-init="item.editable = false" ng-model="item.priority" value="{{item.priority}}" ng-disabled="!item.editable" /></p>
-              <p><span class="ticket-label">Description:</span> <textarea type="text" class="form-control" ng-init="item.editable = false" ng-model="item.description" rows="5" value="{{item.description}}" ng-disabled="!item.editable"></textarea></p>
+              <p ng-show="item.editable"><span class="ticket-label">Description:</span> <textarea type="text" class="form-control" rows="5" ng-init="item.editable = false" ng-model="item.description" value="{{item.description}}"></textarea></p>
+              <p ng-show="!item.editable"><span class="ticket-label">Description:</span><br /> {{item.description}}</p>
               <p><span class="ticket-label">Assignee:</span> <input type="text" class="form-control" ng-init="item.editable = false" ng-model="item.assignee" value="{{item.assignee}}" ng-disabled="!item.editable" /></p>
               <p><span class="ticket-label">Reporter:</span> <input type="text" class="form-control" ng-init="item.editable = false" ng-model="item.reporter" value="{{item.reporter}}" ng-disabled="!item.editable" /></p>
               <p><span class="ticket-label">Created:</span> <time>{{ticket.formatTime(item.created)}}</time></p>
