@@ -64,7 +64,7 @@ body {
 .form-control[disabled] {
   background-color: #FFF;
   border: none;
-  color: #555;
+  color: #333;
   box-shadow: none;
   width: auto;
   display: inline;
@@ -77,15 +77,24 @@ textarea.form-control[disabled] {
   height: 25px;
   resize: none;
   display: block;
+  margin-top: 5px;
   padding: 0;
   /*padding-left: 10px;*/
-  color: #555;
+  color: #333;
   width: 100%;
 }
 
 .name[disabled] {
   background: none;
-  color: #FFF;
+  color: #333;
+}
+
+.label-default {
+    background: none;
+    border: 1px solid #DDD;
+    color: #555;
+    font-weight: 400;
+    font-size: 13px;
 }
 
 time {
