@@ -8,7 +8,7 @@ app.controller('ticketController', ['$http', function($http) {
   // Get all tickets
   vm.get = function() {
     $http.get('/ticket').then(function(response) {
-      console.log(response.data);
+      // console.log(response.data);
       vm.tickets = response.data;
       vm.openTickets = vm.tickets.length;
     });
@@ -40,10 +40,10 @@ app.controller('ticketController', ['$http', function($http) {
 
     var api = '/ticket/edit/' + ticket._id;
     $http.post(api, ticket).then(function(response) {
-      console.log(response);
+      // console.log(response);
     });
 
-    return ticket;
+    vm.get();
   };
 
   // Delete tickets
